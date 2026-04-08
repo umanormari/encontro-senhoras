@@ -51,7 +51,7 @@ const personagens = {
 },
 6: {
     nome: "Maria, mãe de Jesus",
-    imagem: maria.png", // ⚠️ nome do arquivo precisa existir!
+    imagem: "maria.png", // ⚠️ nome do arquivo precisa existir!
     dicas: [
     "Fui escolhida por Deus para uma missão especial",
     "Disse 'sim' mesmo sem entender tudo",
@@ -68,7 +68,7 @@ const desafios = [
 ];
 
 const params = new URLSearchParams(window.location.search);
-const grupo = params.get("grupo");
+const grupo = parseInt(params.get("grupo")) || 1;
 const p = personagens[grupo];
 
 if (document.getElementById("dicas")) {
