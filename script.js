@@ -99,3 +99,6 @@ function gerarDesafio() {
 if (document.getElementById("imagem")) {
   document.getElementById("imagem").src = "assets/personagens/" + p.imagem;
 }
+
+console.log("grupo:", grupo);
+console.log("personagem:", p);
