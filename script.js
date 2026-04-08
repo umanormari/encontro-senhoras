@@ -1,4 +1,4 @@
-const personagens = {
+8const personagens = {
   1: {
     nome: "Ester",
     imagem: "ester.png",
@@ -106,5 +106,6 @@ function gerarDesafio() {
 
 // ✅ IMAGEM (COM PROTEÇÃO)
 if (document.getElementById("imagem") && p && p.imagem) {
-  document.getElementById("imagem").src = "assets/personagens/" + p.imagem;
+  document.getElementById("imagem").src =
+    "/encontro-senhoras/assets/personagens/" + p.imagem;
 }
