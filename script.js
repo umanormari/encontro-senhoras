@@ -1,7 +1,7 @@
 const personagens = {
 1: {
     nome: "Ester",
-    imagem: "Ester.png",
+    imagem: "ester.png",
     dicas: [
     "Vivi em um palácio",
     "Tive medo, mas fui corajosa",
@@ -97,5 +97,5 @@ function gerarDesafio() {
 
 /* ✅ imagem (com proteção) */
 if (document.getElementById("imagem")) {
-  document.getElementById("imagem").src = "/assets/personagens/" + p.imagem;
+  document.getElementById("imagem").src = "assets/personagens/" + p.imagem;
 }
