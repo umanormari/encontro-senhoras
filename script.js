@@ -11,7 +11,7 @@ const personagens = {
 },
 2: {
     nome: "Rute",
-    imagem: "Rute.png",
+    imagem: "rute.png",
     dicas: [
     "Deixei minha terra",
     "Escolhi permanecer fiel",
@@ -21,7 +21,7 @@ const personagens = {
 },
 3: {
     nome: "Ana",
-    imagem: "Ana.png",
+    imagem: "ana.png",
     dicas: [
     "Sofri por muito tempo",
     "Derramei meu coração diante de Deus",
@@ -31,7 +31,7 @@ const personagens = {
 },
 4: {
     nome: "Débora",
-    imagem: "Débora.png",
+    imagem: "debora.png",
     dicas: [
     "Fui líder",
     "Julguei Israel",
@@ -41,7 +41,7 @@ const personagens = {
 },
 5: {
     nome: "Marta",
-    imagem: "Marta.png",
+    imagem: "marta.png",
     dicas: [
     "Eu cuidava da casa",
     "Fiquei sobrecarregada",
@@ -51,7 +51,7 @@ const personagens = {
 },
 6: {
     nome: "Maria, mãe de Jesus",
-    imagem: "Maria.png", // ⚠️ nome do arquivo precisa existir!
+    imagem: maria.png", // ⚠️ nome do arquivo precisa existir!
     dicas: [
     "Fui escolhida por Deus para uma missão especial",
     "Disse 'sim' mesmo sem entender tudo",
@@ -97,5 +97,5 @@ function gerarDesafio() {
 
 /* ✅ imagem (com proteção) */
 if (document.getElementById("imagem")) {
-  document.getElementById("imagem").src = "assets/personagens/" + p.imagem;
+  document.getElementById("imagem").src = "/assets/personagens/" + p.imagem;
 }
