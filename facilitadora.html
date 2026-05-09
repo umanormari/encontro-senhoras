@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel da Facilitadora — Coluna de Virtudes</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/facilitadora.css" />
+</head>
+<body>
+
+  <!-- =====================================================
+       CABEÇALHO
+       ===================================================== -->
+  <header class="fac-header">
+    <div class="fac-header-left">
+      <span class="fac-title">♡ Painel da Facilitadora</span>
+      <span class="fac-subtitle">Encontro de Mulheres — Coluna de Virtudes</span>
+    </div>
+    <div class="fac-header-right">
+      <a href="index.html" class="fac-back-link">← Início</a>
+      <button class="btn-projetor" id="btn-projetor">📺 Modo Projetor</button>
+    </div>
+  </header>
+
+  <!-- =====================================================
+       MODO CONTROLE (visível normalmente)
+       ===================================================== -->
+  <div class="fac-layout control-layout">
+
+    <!-- COLUNA ESQUERDA: Timer -->
+    <section class="fac-section timer-section">
+      <h2 class="fac-section-title">⏱️ Timer do Desafio</h2>
+
+      <div class="timer-ring-wrap">
+        <svg class="timer-ring" viewBox="0 0 120 120">
+          <circle class="timer-ring-bg" cx="60" cy="60" r="54"/>
+          <circle class="timer-ring-fill" cx="60" cy="60" r="54"
+            stroke-linecap="round"
+            transform="rotate(-90 60 60)"/>
+        </svg>
+        <div class="timer-display-wrap">
+          <div class="timer-display">1:00</div>
+          <div class="timer-label-small">segundos</div>
+        </div>
+      </div>
+
+      <div class="preset-btns">
+        <button class="preset-btn" data-sec="30">30s</button>
+        <button class="preset-btn active" data-sec="60">1min</button>
+        <button class="preset-btn" data-sec="90">1:30</button>
+        <button class="preset-btn" data-sec="120">2min</button>
+        <button class="preset-btn" data-sec="180">3min</button>
+      </div>
+
+      <div class="timer-actions">
+        <button class="btn-start-pause timer-btn-primary">▶ Iniciar</button>
+        <button class="btn-reset-timer timer-btn-secondary">↺ Resetar</button>
+      </div>
+    </section>
+
+    <!-- COLUNA DIREITA: Placar -->
+    <section class="fac-section scoreboard-section">
+      <div class="scoreboard-header">
+        <h2 class="fac-section-title">🏆 Placar</h2>
+        <button class="btn-reset-scores" id="btn-reset-scores">Zerar tudo</button>
+      </div>
+
+      <div class="sc-grid" id="scoreboard-grid">
+        <!-- preenchido pelo JS -->
+      </div>
+    </section>
+
+  </div>
+
+  <!-- =====================================================
+       MODO PROJETOR (fullscreen — visível apenas neste modo)
+       ===================================================== -->
+  <div class="projector-layout">
+
+    <div class="proj-top">
+
+      <!-- Timer grande -->
+      <div class="proj-timer-block">
+        <div class="proj-timer-label">⏱ TIMER</div>
+        <div class="timer-ring-wrap proj-ring">
+          <svg class="timer-ring" viewBox="0 0 120 120">
+            <circle class="timer-ring-bg" cx="60" cy="60" r="54"/>
+            <circle class="timer-ring-fill" cx="60" cy="60" r="54"
+              stroke-linecap="round"
+              transform="rotate(-90 60 60)"/>
+          </svg>
+          <div class="timer-display-wrap">
+            <div class="timer-display">1:00</div>
+          </div>
+        </div>
+        <div class="proj-timer-actions">
+          <button class="btn-start-pause proj-ctrl-btn">▶ Iniciar</button>
+          <button class="btn-reset-timer proj-ctrl-btn secondary">↺</button>
+        </div>
+      </div>
+
+      <!-- Título central -->
+      <div class="proj-title-block">
+        <div class="proj-event-title">Encontro de Mulheres</div>
+        <div class="proj-event-sub">✨ Coluna de Virtudes ✨</div>
+      </div>
+
+      <!-- Botão sair -->
+      <div class="proj-exit-block">
+        <button class="btn-projetor proj-exit-btn" id="btn-projetor-exit">⊠ Sair</button>
+      </div>
+
+    </div>
+
+    <!-- Placar grande -->
+    <div class="proj-scoreboard">
+      <div class="proj-sc-title">🏆 PLACAR</div>
+      <div class="proj-sc-grid" id="proj-scoreboard-grid">
+        <!-- Gerado via JS (espelha o sc-grid) -->
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/facilitadora.js"></script>
+  <script>
+    // Espelha o placar no modo projetor
+    document.addEventListener('DOMContentLoaded', () => {
+      const GRUPOS_INFO = [
+        { id: 1, nome: 'Ana',           cor: '#0bb4cc' },
+        { id: 2, nome: 'Joquebede',     cor: '#2d9e6a' },
+        { id: 3, nome: 'Maria',         cor: '#7c5cba' },
+        { id: 4, nome: 'Rebeca',        cor: '#e04b9a' },
+        { id: 5, nome: 'Rute',          cor: '#e07a28' },
+        { id: 6, nome: 'Sara',          cor: '#b8922a' },
+        { id: 7, nome: 'Lóide & Eunice',cor: '#c0392b' },
+      ];
+
+      const projGrid = document.getElementById('proj-scoreboard-grid');
+      GRUPOS_INFO.forEach((g, i) => {
+        const card = document.createElement('div');
+        card.className = 'proj-sc-card';
+        card.style.borderColor = g.cor;
+        card.innerHTML = `
+          <div class="proj-sc-badge" style="background:${g.cor}">${g.id}</div>
+          <div class="proj-sc-name">${g.nome}</div>
+          <div class="proj-sc-score" id="sc-val-${i}">0</div>
+        `;
+        projGrid.appendChild(card);
+      });
+
+      // Botão de sair do projetor dentro da tela projetor
+      document.getElementById('btn-projetor-exit')?.addEventListener('click', () => {
+        document.body.classList.remove('projector-mode');
+        document.getElementById('btn-projetor').textContent = '📺 Modo Projetor';
+        document.exitFullscreen?.().catch(() => {});
+      });
+    });
+  </script>
+</body>
+</html>

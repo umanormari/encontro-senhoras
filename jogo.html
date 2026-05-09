@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dinâmica — Quem sou eu?</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===================================================
+       TELA 1 — Seleção de Grupo
+       =================================================== -->
+  <div id="screen-select" class="screen active">
+    <div style="padding: 48px 24px; text-align: center;">
+      <h1>Quem sou eu?</h1>
+      <p style="color: var(--text-muted); margin: 12px auto 40px; max-width: 420px;">
+        Escolha o número do seu grupo para começar a descobrir qual
+        mulher da Bíblia vocês representam.
+      </p>
+
+      <div class="groups-grid">
+        <button class="group-btn" data-group="1">
+          <span class="gb-icon">👥</span>
+          <span class="gb-label">Grupo</span>
+          <span class="gb-num">1</span>
+        </button>
+        <button class="group-btn" data-group="2">
+          <span class="gb-icon">👥</span>
+          <span class="gb-label">Grupo</span>
+          <span class="gb-num">2</span>
+        </button>
+        <button class="group-btn" data-group="3">
+          <span class="gb-icon">👥</span>
+          <span class="gb-label">Grupo</span>
+          <span class="gb-num">3</span>
+        </button>
+        <button class="group-btn" data-group="4">
+          <span class="gb-icon">👥</span>
+          <span class="gb-label">Grupo</span>
+          <span class="gb-num">4</span>
+        </button>
+        <button class="group-btn" data-group="5">
+          <span class="gb-icon">👥</span>
+          <span class="gb-label">Grupo</span>
+          <span class="gb-num">5</span>
+        </button>
+        <button class="group-btn" data-group="6">
+          <span class="gb-icon">👥</span>
+          <span class="gb-label">Grupo</span>
+          <span class="gb-num">6</span>
+        </button>
+        <button class="group-btn" data-group="7">
+          <span class="gb-icon">👥</span>
+          <span class="gb-label">Grupo</span>
+          <span class="gb-num">7</span>
+        </button>
+      </div>
+
+      <a href="index.html" class="back-link">← Voltar para o início</a>
+    </div>
+  </div>
+
+  <!-- ===================================================
+       TELA 2 — Jogo
+       =================================================== -->
+  <div id="screen-game" class="screen">
+
+    <!-- Cabeçalho fixo -->
+    <header class="game-header">
+      <div class="game-header-left">
+        <div class="header-badge" id="header-badge">1</div>
+        <span class="header-title" id="header-title">GRUPO 1</span>
+      </div>
+      <button class="btn-sair" id="btn-sair">Sair</button>
+    </header>
+
+    <!-- Barra de progresso — 5 passos -->
+    <div class="progress-bar">
+      <div class="step-node">
+        <div class="step-circle active" data-step="0">1</div>
+        <span class="step-label active">DICAS</span>
+      </div>
+      <div class="step-line" data-line="0"></div>
+      <div class="step-node">
+        <div class="step-circle" data-step="1">2</div>
+        <span class="step-label">PERSONAGEM</span>
+      </div>
+      <div class="step-line" data-line="1"></div>
+      <div class="step-node">
+        <div class="step-circle" data-step="2">3</div>
+        <span class="step-label">DESEMBARALHE</span>
+      </div>
+      <div class="step-line" data-line="2"></div>
+      <div class="step-node">
+        <div class="step-circle" data-step="3">4</div>
+        <span class="step-label">REFLEXÃO</span>
+      </div>
+      <div class="step-line" data-line="3"></div>
+      <div class="step-node">
+        <div class="step-circle" data-step="4">5</div>
+        <span class="step-label">DESAFIO</span>
+      </div>
+    </div>
+
+    <!-- Conteúdo dinâmico -->
+    <div class="game-main" id="game-content">
+    </div>
+
+    <!-- Caixa de resposta fixa no rodapé (passo dicas) -->
+    <div class="guess-box hidden" id="guess-box">
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
